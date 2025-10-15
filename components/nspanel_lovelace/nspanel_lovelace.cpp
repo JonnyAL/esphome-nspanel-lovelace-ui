@@ -1,5 +1,6 @@
 #include <regex>
 #include "nspanel_lovelace.h"
+#include "esphome/components/uart/uart_component.h"
 
 #include "esphome/core/application.h"
 #include "esphome/core/helpers.h"
@@ -220,7 +221,7 @@ void NSPanelLovelace::exit_reparse_mode() {
 void NSPanelLovelace::set_baud_rate_(int baud_rate) {
   // hopefully on NSPanel it should always be an ESP32ArduinoUARTComponent instance
 #ifdef USE_ARDUINO
-  auto *uart = reinterpret_cast<uart::ESP32ArduinoUARTComponent *>(this->parent_);
+  auto *uart = dynamic_cast<uart::UARTComponent *>(this->parent_);
 #endif
 #ifdef USE_ESP_IDF
   auto *uart = reinterpret_cast<uart::IDFUARTComponent *>(this->parent_);
