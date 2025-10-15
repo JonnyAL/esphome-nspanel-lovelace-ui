@@ -9,7 +9,7 @@
 #include "esphome/core/defines.h"
 
 #ifdef USE_ARDUINO
-#include "esphome/components/uart/uart_component_esp32_arduino.h"
+#include "esphome/components/uart/uart_component.h"
 #include <HTTPClient.h>
 #endif
 #ifdef USE_ESP_IDF
